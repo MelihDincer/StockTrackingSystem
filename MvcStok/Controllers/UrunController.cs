@@ -26,7 +26,7 @@ namespace MvcStok.Controllers
                                                  Text = i.KATEGORIAD,
                                                  Value = i.KATEGORIID.ToString()
                                              }).ToList();
-            ViewBag.dgr = degerler;
+            ViewBag.dgr = degerler;//viewbag'den dgr türünde değer türettik ve degerleri bu türde tutmasını sağladık.
 
             return View();
         }
@@ -37,12 +37,10 @@ namespace MvcStok.Controllers
         {
             var ktg = db.TBLKATEGORILER.Where(m => m.KATEGORIID == p1.TBLKATEGORILER.KATEGORIID).FirstOrDefault();
             p1.TBLKATEGORILER = ktg;
-
             db.TBLURUNLER.Add(p1);
             db.SaveChanges();
             return RedirectToAction("Index"); 
         }
-
         public ActionResult SIL(int id)
         {
             var urun = db.TBLURUNLER.Find(id);
@@ -50,7 +48,6 @@ namespace MvcStok.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-
         public ActionResult UrunGetir(int id)
         {
             var urun = db.TBLURUNLER.Find(id);
@@ -62,10 +59,7 @@ namespace MvcStok.Controllers
                                                  Value = i.KATEGORIID.ToString()
                                              }).ToList();
             ViewBag.dgr = degerler;
-
-
             return View("UrunGetir", urun);
-
         }
 
         public ActionResult Guncelle(TBLURUNLER p)
