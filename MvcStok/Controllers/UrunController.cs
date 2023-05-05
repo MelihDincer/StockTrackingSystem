@@ -9,14 +9,12 @@ namespace MvcStok.Controllers
 {
     public class UrunController : Controller
     {
-        // GET: Urun
         MVC_DB_STOKEntities db = new MVC_DB_STOKEntities();
         public ActionResult Index()
         {
             var degerler = db.TBLURUNLER.ToList();
             return View(degerler);
         }
-
         [HttpGet]
         public ActionResult UrunEkle()
         {
@@ -27,11 +25,8 @@ namespace MvcStok.Controllers
                                                  Value = i.KATEGORIID.ToString()
                                              }).ToList();
             ViewBag.dgr = degerler;//viewbag'den dgr türünde değer türettik ve degerleri bu türde tutmasını sağladık.
-
             return View();
         }
-
-
         [HttpPost]
         public ActionResult UrunEkle(TBLURUNLER p1)
         {
@@ -51,7 +46,6 @@ namespace MvcStok.Controllers
         public ActionResult UrunGetir(int id)
         {
             var urun = db.TBLURUNLER.Find(id);
-
             List<SelectListItem> degerler = (from i in db.TBLKATEGORILER.ToList()
                                              select new SelectListItem
                                              {
@@ -61,7 +55,6 @@ namespace MvcStok.Controllers
             ViewBag.dgr = degerler;
             return View("UrunGetir", urun);
         }
-
         public ActionResult Guncelle(TBLURUNLER p)
         {
             var urun = db.TBLURUNLER.Find(p.URUNID);
@@ -75,6 +68,5 @@ namespace MvcStok.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-
     }
 }

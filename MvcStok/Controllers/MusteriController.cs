@@ -22,13 +22,11 @@ namespace MvcStok.Controllers
             //var degerler = db.TBLMUSTERILER.ToList();
             //return View(degerler);
         }
-
         [HttpGet]
         public ActionResult YeniMusteri()
         {
             return View();
         }
-
         [HttpPost]
         public ActionResult YeniMusteri(TBLMUSTERILER p1)
         {
@@ -41,7 +39,6 @@ namespace MvcStok.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-
         public ActionResult SIL(int id)
         {
             var musteri = db.TBLMUSTERILER.Find(id);
@@ -49,18 +46,16 @@ namespace MvcStok.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-
         public ActionResult MusteriGetir(int id)
         {
             var must = db.TBLMUSTERILER.Find(id);
             return View("MusteriGetir", must);
         }
-
         public ActionResult Guncelle(TBLMUSTERILER p1)
         {
-            var musteri= db.TBLMUSTERILER.Find(p1.MUSTERIID);
-            musteri.MUSTERIAD = p1.MUSTERIAD;
-            musteri.MUSTERISOYAD = p1.MUSTERISOYAD;
+            var musteri = db.TBLMUSTERILER.Find(p1.MUSTERIID);
+            musteri.MUSTERIAD = p1.MUSTERIAD;//musteri den gelen musteri adına parametreden gelen p1 değerinin musteri adını ata.
+            musteri.MUSTERISOYAD = p1.MUSTERISOYAD;//musteri den gelen musteri soyadına parametreden gelen p1 değerinin musteri soyadını ata.
             db.SaveChanges();
             return RedirectToAction("Index");
         }
