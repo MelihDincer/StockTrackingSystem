@@ -26,8 +26,6 @@
         }
     </tbody>
 </table>
+@*Paging (Sayfalama İşlemi) *@
 @Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("Index", new { sayfa }))   @*Url.Action = Yönlendir , Index'e' yönlendir ve yeni sayfa oluştur.*@
 <a href="/KATEGORI/YeniKategori" class="btn btn-primary">YENİ KATEGORİ EKLE</a>
-
-
-
