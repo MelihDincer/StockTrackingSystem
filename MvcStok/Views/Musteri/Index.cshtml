@@ -7,11 +7,12 @@
 }
 
 @using (Html.BeginForm("Index", "Musteri", FormMethod.Get))
-  {
-    <b>Aranacak Müşteri Adı: @Html.TextBox("p")
-    <input type="submit" value="Ara" /></b>
-  }
-
+{
+    <b>
+        Aranacak Müşteri Adı: @Html.TextBox("p")
+        <input type="submit" value="Ara" />
+    </b>
+}
 <table class="table table-bordered" style="margin-top:18px">
     <tr>
         <th>MÜŞTERİ ID</th>
@@ -21,21 +22,18 @@
         <th>GÜNCELLE</th>
         <th>SİL</th>
     </tr>
-
     <tbody>
-
         @foreach (var must in Model)
         {
-        <tr>
-            <td>@must.MUSTERIID</td>
-            <td>@must.MUSTERIAD</td>
-            <td>@must.MUSTERISOYAD</td>
-            <td> <a href="/MUSTERI/SIL/@must.MUSTERIID" class="btn btn-danger">SİL</a> </td>
-            <td> <a href="/MUSTERI/MusteriGetir/@must.MUSTERIID" class="btn btn-success">GUNCELLE</a> </td>
-            <td> @Html.ActionLink("SİL BUTONU", "SIL", new { id = must.MUSTERIID }, new { @class = "btn btn-warning", onclick = "return confirm('Gerçekten Silmek İstiyor musunuz?')" }) </td>
-        </tr>
-            }
+            <tr>
+                <td>@must.MUSTERIID</td>
+                <td>@must.MUSTERIAD</td>
+                <td>@must.MUSTERISOYAD</td>
+                <td> <a href="/MUSTERI/SIL/@must.MUSTERIID" class="btn btn-danger">SİL</a> </td>
+                <td> <a href="/MUSTERI/MusteriGetir/@must.MUSTERIID" class="btn btn-success">GUNCELLE</a> </td>
+                <td> @Html.ActionLink("SİL BUTONU", "SIL", new { id = must.MUSTERIID }, new { @class = "btn btn-warning", onclick = "return confirm('Gerçekten Silmek İstiyor musunuz?')" }) </td>
+            </tr>
+        }
     </tbody>
 </table>
 <a href="/MUSTERI/YeniMusteri" class="btn btn-primary">YENİ MÜŞTERİ EKLE</a>
-

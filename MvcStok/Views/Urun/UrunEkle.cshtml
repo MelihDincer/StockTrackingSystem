@@ -9,7 +9,7 @@
 <form method="post" class="form-group">
     <div style="margin-top:30px">
         <label style="font-size:20px">Ürün Adı</label>
-        <input style="margin-top:10px" type="text" class="form-control" name="URUNAD" required="" maxlength="30"/>
+        <input style="margin-top:10px" type="text" class="form-control" name="URUNAD" required="" maxlength="30" />
     </div>
 
     <div style="margin-top:30px">
@@ -19,8 +19,8 @@
 
     <div style="margin-top:30px">
         <label style="font-size:20px">Kategori Seçiniz</label>
-       
-        @Html.DropDownListFor(m => m.TBLKATEGORILER.KATEGORIID, (List<SelectListItem>)ViewBag.dgr , new { @class = "form-control" })
+
+        @Html.DropDownListFor(m => m.TBLKATEGORILER.KATEGORIID, (List<SelectListItem>)ViewBag.dgr, new { @class = "form-control" })
 
     </div>
 
@@ -31,7 +31,7 @@
 
     <div style="margin-top:30px">
         <label style="font-size:20px">Stok Adeti</label>
-        <input style="margin-top:10px" type="text" class="form-control" name="STOK" required=""/>
+        <input style="margin-top:10px" type="text" class="form-control" name="STOK" required="" />
     </div>
 
     <div style="margin-top:20px">

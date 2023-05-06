@@ -6,19 +6,16 @@
 
 <form class="form-group" method="post">
     @*<div style="margin-top:30px">
-        <label style="font-size:20px" >KATEGORİ ADI</label>
-        <input style="margin-top:10px" type="text" class="form-control" name="KATEGORIAD" />
-    </div>*@
-
+            <label style="font-size:20px" >KATEGORİ ADI</label>
+            <input style="margin-top:10px" type="text" class="form-control" name="KATEGORIAD" />
+        </div>*@
     <div>
         <label>Kategori Adı</label>
-        @Html.TextBoxFor(m=>m.KATEGORIAD, new {@class ="form-control" } )
-        @Html.ValidationMessageFor(m=>m.KATEGORIAD,"",new {@style="color:blue"})
+        @Html.TextBoxFor(m => m.KATEGORIAD, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.KATEGORIAD, "", new { @style = "color:blue" })
     </div>
-
     <div style="margin-top:20px">
         <button class="btn btn-info" style="font-size:20px">Kategori Ekle</button>
     </div>
-
 </form>
 

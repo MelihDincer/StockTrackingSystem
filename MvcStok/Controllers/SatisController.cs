@@ -10,18 +10,15 @@ namespace MvcStok.Controllers
     public class SatisController : Controller
     {
         MVC_DB_STOKEntities db = new MVC_DB_STOKEntities();
-        // GET: Satis
         public ActionResult Index()
         {
             return View();
         }
-
         [HttpGet]
         public ActionResult YeniSatis()
         {
             return View();
         }
-
         [HttpPost]
         public ActionResult YeniSatis(TBLSATISLAR p)
         {
@@ -29,7 +26,5 @@ namespace MvcStok.Controllers
             db.SaveChanges();
             return View("Index");
         }
-
-
     }
 }

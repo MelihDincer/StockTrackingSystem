@@ -9,7 +9,6 @@ namespace MvcStok.Controllers
 {
     public class MusteriController : Controller
     {
-        // GET: Musteri
         MVC_DB_STOKEntities db = new MVC_DB_STOKEntities();
         public ActionResult Index(string p)
         {

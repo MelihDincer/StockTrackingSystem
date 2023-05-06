@@ -8,7 +8,6 @@ namespace MvcStok.Controllers
 {
     public class YardimController : Controller
     {
-        // GET: Yardim
         public ActionResult Index()
         {
             return View();

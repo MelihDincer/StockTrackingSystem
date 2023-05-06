@@ -34,7 +34,7 @@ namespace MvcStok.Controllers
             p1.TBLKATEGORILER = ktg;
             db.TBLURUNLER.Add(p1);
             db.SaveChanges();
-            return RedirectToAction("Index"); 
+            return RedirectToAction("Index");
         }
         public ActionResult SIL(int id)
         {

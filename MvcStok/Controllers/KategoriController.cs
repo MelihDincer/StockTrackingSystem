@@ -13,13 +13,12 @@ namespace MvcStok.Controllers
     {
         MVC_DB_STOKEntities db = new MVC_DB_STOKEntities();
         //Burada paging işlemi yapılmıştır. Bunun yapılabilmesi için NuGet Package Manager üzerinden PagedList.Mvc indirildi ve yukarıda PagedList ve PagedList.Mvc eklendi.
-        public ActionResult Index(int page=1)
+        public ActionResult Index(int page = 1)
         {
             //var degerler = db.TBLKATEGORILER.ToList(); //eski kullanımımız.
             var degerler = db.TBLKATEGORILER.ToList().ToPagedList(page, 4); // başlangıç değerindeki sayfayı getir, her sayfada 4 satır veri getirilsin.
             return View(degerler);
         }
-
         [HttpGet] //sayfa yüklendiğinde
         public ActionResult YeniKategori()
         {
@@ -28,7 +27,6 @@ namespace MvcStok.Controllers
         [HttpPost] //butona tıklandığında (httpget ve httppost kullanılarak, sayfa her yüklendiğinde null değer eklenmesi engellendi.
         public ActionResult YeniKategori(TBLKATEGORILER p1)
         {
-            
             if (!ModelState.IsValid)//Modelin durumunda doğrulanma işlemi yapılmadıysa ("!" kullanılırsa olumsuzu oluyor yani yapılmadıysa)
             {
                 return View("YeniKategori");
@@ -39,7 +37,7 @@ namespace MvcStok.Controllers
         }
         public ActionResult SIL(int id)
         {
-            var kategori= db.TBLKATEGORILER.Find(id);
+            var kategori = db.TBLKATEGORILER.Find(id);
             db.TBLKATEGORILER.Remove(kategori);
             db.SaveChanges();
             return RedirectToAction("Index");
@@ -48,7 +46,7 @@ namespace MvcStok.Controllers
         {
             var ktgr = db.TBLKATEGORILER.Find(id);
             return View("KategoriGetir", ktgr);
-        }     
+        }
         public ActionResult Guncelle(TBLKATEGORILER p1)
         {
             var ktgr = db.TBLKATEGORILER.Find(p1.KATEGORIID);
